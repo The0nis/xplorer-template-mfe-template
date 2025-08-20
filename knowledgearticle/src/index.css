@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.casing-box {
+    height: 64vh;
+}
+
+.vertical-scroll {
+    overflow: scroll;
+    box-sizing: border-box;
+    word-break: keep-all !important;
+  
+    scrollbar-width: thin;  
+    scrollbar-color: #d9dee4 transparent; 
+  }

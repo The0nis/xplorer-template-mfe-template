@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default theme colors 
+.xplorer-grey {
+    color: #5D6066;
+}
+
+.xplorer-black {
+    color: #404040;
+}
+
+.xplore-logo-box {
+    /* width: 215px; */
+/* width: 13.44rem;
+    border-right: 1px solid #E0E0E0;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+} */

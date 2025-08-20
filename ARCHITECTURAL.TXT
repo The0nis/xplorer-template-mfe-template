@@ -1,0 +1,127 @@
++-------------------------+
+|     Container App       |
+|                         |
+|   +------------------+  |
+|   |  import { mount } |  |
+|   |  from "marketing/  |  |
+|   |  MarketingApp";    |  |
+|   +------------------+  |
+|   |                  |  |
+|   |  Webpack 5 with  |  |
+|   |  ModuleFederation|  |
+|   |  Plugin          |  |
+|   |                  |  |
+|   +--------^---------+  |
+|            |            |
+|            |            |
+|            |            |
++------------|------------+
+             |
+             |
+             |
+             |
++------------v------------+
+|      Marketing App      |
+|                         |
+|  +------------------+   |
+|  |  Exposes Module  |   |
+|  |  "./MarketingApp"|   |
+|  +------------------+   |
+|  |                  |   |
+|  |  Webpack 5 with  |   |
+|  |  ModuleFederation|   |
+|  |  Plugin          |   |
+|  |                  |   |
++-------------------------+
+
+Shared Dependencies (React, ReactDOM)
+
+
+How the docker is run 
+docker-compose down
+docker-compose build
+docker-compose up
+
+spin up a new mfe from the sample mfe
+robocopy sample name_of_mfe /e
+
+docker cmd for prod for a container
+build command
+docker build -t component:nginx -f Dockerfile.Prod .
+run command
+docker run -p 9000:80 component:nginx 
+
+docker build -t component -f Dockerfile.Prod .
+
+List running containers:
+
+docker ps
+
+Stop the container using port 4004:
+
+docker stop <container_id>
+
+Steps to Verify and Fix:
+Check File Copying: Ensure the files are indeed being copied to the /usr/share/nginx/html/component directory in the Docker image. You can do this by running a container interactively and checking the directory:
+
+sh
+Copy code
+docker run -it my-microfrontend-app sh
+ls /usr/share/nginx/html/component
+
+
+{
+  "name": "xplorer",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "component",
+    "auth",
+    "customers",
+    "dashboard",
+    "cases",
+    "activities",
+    "request",
+    "knowledgearticle",
+    "services",
+    "settings",
+    "container"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm --workspace component run deploy\" \"npm --workspace auth run deploy\" \"npm --workspace customers run deploy\" \"npm --workspace dashboard run deploy\" \"npm --workspace cases run deploy\" \"npm --workspace activities run deploy\" \"npm --workspace request run deploy\" \"npm --workspace knowledgearticle run deploy\" \"npm --workspace services run deploy\" \"npm --workspace settings run deploy\" \"npm --workspace container run deploy\"",
+    "watch:component": "nodemon --watch component/src -e js,jsx,ts,tsx,css,scss,json --exec \"npm --workspace component run deploy\"",
+    "watch:auth": "nodemon --watch auth/src -e js,jsx,ts,tsx,css,scss,json --exec \"npm --workspace auth run deploy\"",
+    "watch:customers": "nodemon --watch customers/src -e js,jsx,ts,tsx,css,scss,json --exec \"npm --workspace customers run deploy\"",
+    "watch:dashboard": "nodemon --watch dashboard/src -e js,jsx,ts,tsx,css,scss,json --exec \"npm --workspace dashboard run deploy\"",
+    "watch:cases": "nodemon --watch cases/src -e js,jsx,ts,tsx,css,scss,json --exec \"npm --workspace cases run deploy\"",
+    "watch:activities": "nodemon --watch activities/src -e js,jsx,ts,tsx,css,scss,json --exec \"npm --workspace activities run deploy\"",
+    "watch:request": "nodemon --watch request/src -e js,jsx,ts,tsx,css,scss,json --exec \"npm --workspace request run deploy\"",
+    "watch:knowledgearticle": "nodemon --watch knowledgearticle/src -e js,jsx,ts,tsx,css,scss,json --exec \"npm --workspace knowledgearticle run deploy\"",
+    "watch:services": "nodemon --watch services/src -e js,jsx,ts,tsx,css,scss,json --exec \"npm --workspace services run deploy\"",
+    "watch:settings": "nodemon --watch settings/src -e js,jsx,ts,tsx,css,scss,json --exec \"npm --workspace settings run deploy\"",
+    "watch:container": "nodemon --watch container/src -e js,jsx,ts,tsx,css,scss,json --exec \"npm --workspace container run deploy\"",
+    "watch:all": "concurrently --names \"component,auth,customers,dashboard,cases,activities,request,knowledge,services,settings,container\" \"npm run watch:component\" \"npm run watch:auth\" \"npm run watch:customers\" \"npm run watch:dashboard\" \"npm run watch:cases\" \"npm run watch:activities\" \"npm run watch:request\" \"npm run watch:knowledgearticle\" \"npm run watch:services\" \"npm run watch:settings\" \"npm run watch:container\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "nodemon": "^3.0.2"
+  }
+}
+
+docker-compose \
+  --env-file ./component/.env.development.local \
+  --env-file ./auth/.env.development.local \
+  --env-file ./dashboard/.env.development.local \
+  --env-file ./customers/.env.development.local \
+  --env-file ./cases/.env.development.local \
+  --env-file ./activities/.env.development.local \
+  --env-file ./settings/.env.development.local \
+  --env-file ./services/.env.development.local \
+  --env-file ./container/.env.development.local \
+  up
+
+
+
+NOTES:
+1. Make changes to container .env file
+2. Update .env file for general settings

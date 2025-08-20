@@ -1,0 +1,58 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "jsx": "react-jsx",
+    // "types": ["node", "@types/webpack-env"]
+    "types": ["node"],
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "baseUrl": ".",
+    "paths": {
+      "container/*": ["../container/src/*"]  // Adjust the path to the container
+    }
+    // "paths": {
+    //   "component/*": ["./node_modules/@types/component/*"] // Adjust as necessary
+    // },
+    // "types": ["@types/file-loader"],
+  },
+  "include": ["src", "custom.d.ts", "vite-env.d.ts"]
+}
+
+// {
+//   "compilerOptions": {
+//     "target": "es2022", // Use ES2022 or later
+//     "lib": ["dom", "dom.iterable", "esnext"],
+//     "allowJs": true,
+//     "skipLibCheck": true,
+//     "esModuleInterop": true,
+//     "allowSyntheticDefaultImports": true,
+//     "strict": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "noFallthroughCasesInSwitch": true,
+//     "module": "esnext", // Use ESNext for module system
+//     "moduleResolution": "node",
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "noEmit": false,
+//     "jsx": "react-jsx",
+//     "types": ["node"],
+//     "typeRoots": ["./node_modules/@types", "./src/types"],
+//     "baseUrl": ".",
+//     "paths": {
+//       "container/*": ["../container/src/*"] // Adjust the path to the container
+//     }
+//   },
+//   "include": ["src", "custom.d.ts", "vite-env.d.ts"]
+// }

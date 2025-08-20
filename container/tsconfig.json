@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es6", // Use a modern JavaScript target
+    "lib": ["dom", "dom.iterable", "esnext"], // Include relevant libraries
+    "allowJs": true, // Allow JavaScript files to be compiled
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "esModuleInterop": true, // Enable default import interoperability
+    "allowSyntheticDefaultImports": true, // Allow synthetic default imports
+    "strict": true, // Enable all strict type-checking options
+    "forceConsistentCasingInFileNames": true, // Ensure consistent file naming
+    "noFallthroughCasesInSwitch": true, // Prevent fall-through cases in switch statements
+    "module": "esnext", // Use ESNext module system
+    "moduleResolution": "node", // Use Node.js module resolution
+    "resolveJsonModule": true, // Allow importing JSON modules
+    "isolatedModules": true, // Ensure each file is treated as a separate module
+    "noEmit": false, // Emit output files (set to true to disable)
+    "jsx": "react-jsx", // Use React JSX transformation (for React 17+)
+    "types": ["node", "@types/file-loader"],
+    "baseUrl": ".", // Base directory for resolving non-relative module names
+  },
+  "include": ["src", "global.d.ts", "vite-env.d.ts", "../auth/src/components/Icons.tsx"], // Include source files from the src directory
+  "exclude": ["node_modules"] // Exclude node_modules directory
+}

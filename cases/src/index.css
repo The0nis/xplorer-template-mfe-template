@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.casing-box {
+    height: 64vh;
+}
+
+.vertical-scroll {
+    overflow: scroll;
+    box-sizing: border-box;
+    word-break: keep-all !important;
+  
+    scrollbar-width: thin;  
+    scrollbar-color: #d9dee4 transparent; 
+  }
+  
+  /* WebKit browsers (Chrome, Safari) */
+  .vertical-scroll::-webkit-scrollbar, .vertical-scroll::-webkit-scrollbar {
+    width: 2px;  
+    height: 2px; 
+  }
+  
+  .vertical-scroll::-webkit-scrollbar-track, .vertical-scroll::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  
+  .vertical-scroll::-webkit-scrollbar-thumb, .vertical-scroll::-webkit-scrollbar-thumb {
+    background-color: #96989A; 
+    border-radius: 10px;   
+    border: 1px solid transparent; 
+  }
+  
+  /* Firefox */
+  .vertical-scroll::-moz-scrollbar, .vertical-scroll::-moz-scrollbar {
+    width: 2px;  
+    height: 2px;
+  }
+  
+  .vertical-scroll::-moz-scrollbar-track, .vertical-scroll::-moz-scrollbar-track {
+    background: transparent; 
+  }
+  
+  .vertical-scroll::-moz-scrollbar-thumb, .vertical-scroll::-moz-scrollbar-thumb {
+    background-color: #96989A;
+    border-radius: 2px;    
+    border: 1px solid transparent; 
+  }
+
+/* Check box styles  */
+.custom-checkbox-container {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 100%; 
+  height: 100%; 
+}
+
+.custom-checkbox {
+  display: none;
+}
+
+.custom-checkbox-checkmark {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: 3px solid #6C757D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-checkbox-icon {
+  color: #6C757D;
+  font-size: 12px; 
+}
+
+/* Styles for the edit filter modal - starts */
+.chechbox-input-container {
+  border-left: 2px solid #bcc4cb;
+  height: 60vh;
+  overflow: scroll;
+}
+
+.chechbox-input-container-greyBg {
+  border-left: 2px solid #bcc4cb;
+}
+
+.chechbox-input-container-item {
+  border-bottom: 2px solid #bcc4cb;
+  margin-bottom: 50px;
+  padding: 10px 0;
+  position: relative;
+}
+
+.chechbox-input-container-item-inner {
+  width: 97%;
+  position: absolute;
+  top: 0%;
+  left: 3%;
+  background-color: white;
+}
+
+.chechbox-input-container-item-inner-2 {
+  width: 97%;
+  position: absolute;
+  top: 0%;
+  left: 3%;
+}
+
+.chechbox-input-container-item-inner-small {
+  width: 97%;
+  position: absolute;
+  top: 0%;
+  left: 9%;
+  background-color: white;
+}
+
+.chechbox-input-container-item-inner-small-2 {
+  width: 91%;
+  position: absolute;
+  top: 0%;
+  left: 9%;
+}
+/* Styles for the edit filter modal - endss */
+
+
+/* Input box  */
+.new_input_box {
+  position: relative;
+  border-bottom: 1px solid #212529;
+  width: 100%;
+}
+
+.new_input_box input {
+  border: none;
+  outline: none;
+  padding: 6px 10px;
+}
+
+.new_input_box input::placeholder {
+  color: #212529;
+}
+
+.new_input_box_icon {
+  position: absolute;
+  top: 20%;
+  right: 3%;
+}
+
+.hover-item {
+  cursor: pointer;
+}
+
+.higherHeight {
+  height: 85vh;
+}
+
+/* For react-select DatePicker  */
+.xplorer-date-picker {
+  border: 1px solid #E0E0E0 !important;
+  color: #68698A;
+  padding: 0.5rem 0.75rem; 
+  border-radius: 10px  !important; 
+}
+
+
+.xplorer-date-picker input {
+  color: #68698A !important;
+  border: none !important; 
+  width: 100%;
+}
+
+.xplorer-date-picker input {
+  color: #68698A !important;
+  border: none !important; 
+}
+
+.xplorer-date-picker input:focus {
+  outline: none !important; 
+  border-color: #E0E0E0 !important;
+}
+
+/* For react-select DatePicker  */
+.xplorer-date-picker {
+  border: 1px solid #E0E0E0 !important;
+  color: #68698A;
+  padding: 0.5rem 0.75rem; 
+  border-radius: 10px  !important; 
+}
+
+.width-12-6 {
+  width: 12.6rem !important;
+}
+
+.xplorer-date-picker input {
+  color: #68698A !important;
+  border: none !important; 
+  width: 100%;
+}
+
+.xplorer-date-picker input:focus {
+  outline: none !important; 
+  border-color: #E0E0E0 !important;
+}
+
+/* DatePicker popup */
+.react-date-picker__calendar {
+  z-index: 9999 !important; 
+}
+
+.react-date-picker__wrapper {
+  border: none !important;
+}
+
+.react-date-picker__button:enabled:hover .react-date-picker__button__icon {
+  stroke: #68698A !important;
+}
+
+
+@media screen and (min-width: 1900px) {
+  .chechbox-input-container {
+    position: absolute;
+    width: 97%;
+    /* border: 1px solid lightgrey; */
+  }
+
+  .higherHeight {
+    height: 70vh;
+  }
+}

@@ -1,0 +1,6 @@
+declare module "settings/SettingsApp"
+declare module "settings/settingsSlice"
+declare module "settings/CaseStructure"
+declare module "settings/GeneralSettings"
+declare module "settings/UsermanagementSettings"
+declare module "settings/userManagementSlice"

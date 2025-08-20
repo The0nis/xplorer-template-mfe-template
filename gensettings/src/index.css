@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.casing-box {
+    height: 64vh;
+}
+
+.vertical-scroll {
+    overflow: scroll;
+    box-sizing: border-box;
+    word-break: keep-all !important;
+  
+    scrollbar-width: thin;  
+    scrollbar-color: #d9dee4 transparent; 
+  }
+
+  /* For react-select DatePicker  */
+  .xplorer-date-picker {
+    border: 1px solid #E0E0E0 !important;
+    color: #68698A;
+    padding: 0.5rem 0.75rem; 
+    border-radius: 10px  !important; 
+    width: 100%;
+  }
+  
+  .width-12-6 {
+    width: 12.6rem !important;
+  }
+
+  
+  .xplorer-date-picker input {
+    color: #68698A !important;
+    border: none !important; 
+    width: 100%;
+  }
+
+  .xplorer-date-picker input:focus {
+    outline: none !important; 
+    border-color: #E0E0E0 !important;
+  }
+
+  .react-date-picker__calendar {
+    z-index: 9999 !important; 
+  }
+  
+  .react-date-picker__wrapper {
+    border: none !important;
+  }
+  
+  .react-date-picker_button:enabled:hover .react-date-pickerbutton_icon {
+    stroke: #68698A !important;
+}
+
+/* For react-select DatePicker  ends */
+
+
+/* Styles for the edit filter modal - starts */
+.chechbox-input-container {
+  border-left: 2px solid #bcc4cb;
+  height: 60vh;
+  overflow: scroll;
+}
+
+.chechbox-input-container-greyBg {
+  border-left: 2px solid #bcc4cb;
+}
+
+.chechbox-input-container-item {
+  border-bottom: 2px solid #bcc4cb;
+  margin-bottom: 50px;
+  padding: 10px 0;
+  position: relative;
+}
+
+.chechbox-input-container-item-inner {
+  width: 97%;
+  position: absolute;
+  top: 0%;
+  left: 3%;
+  background-color: white;
+}
+
+.chechbox-input-container-item-inner-2 {
+  width: 97%;
+  position: absolute;
+  top: 0%;
+  left: 3%;
+}
+
+.chechbox-input-container-item-inner-small {
+  width: 97%;
+  position: absolute;
+  top: 0%;
+  left: 9%;
+  background-color: white;
+}
+
+.chechbox-input-container-item-inner-small-2 {
+  width: 91%;
+  position: absolute;
+  top: 0%;
+  left: 9%;
+}
+/* Styles for the edit filter modal - endss */

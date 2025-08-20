@@ -1,0 +1,281 @@
+# version: '3'
+services:
+  component:
+    build: ./component
+    ports:
+      - "9000:80"
+    environment:
+      - VITE_BASE=/
+    networks:
+      - xplorer-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  auth:
+    build: ./auth
+    ports:
+      - "4004:80"
+    environment:
+      - VITE_COMPONENT_URL=http://component
+      - VITE_BASE=/
+    networks:
+      - xplorer-network
+    depends_on:
+      component:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  dashboard:
+    build: ./dashboard
+    ports:
+      - "4002:80"
+    environment:
+      - VITE_COMPONENT_URL=http://component
+      - VITE_BASE=/
+    networks:
+      - xplorer-network
+    depends_on:
+      component:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  customers:
+    build: ./customers
+    ports:
+      - "4001:80"
+    environment:
+      - VITE_COMPONENT_URL=http://component
+      - VITE_BASE=/
+    networks:
+      - xplorer-network
+    depends_on:
+      component:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  cases:
+    build: ./cases
+    ports:
+      - "4005:80"
+    environment:
+      - VITE_COMPONENT_URL=http://component
+      - VITE_BASE=/
+    networks:
+      - xplorer-network
+    depends_on:
+      component:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # request:
+  #   build: ./request
+  #   ports:
+  #     - "4003:80"
+  #   environment:
+  #     - VITE_COMPONENT_URL=http://component
+  #     - VITE_BASE=/
+  #   networks:
+  #     - xplorer-network
+  #   depends_on:
+  #     - component
+
+  activities:
+    build: ./activities
+    ports:
+      - "4007:80"
+    environment:
+      - VITE_COMPONENT_URL=http://component
+      - VITE_BASE=/
+    networks:
+      - xplorer-network
+    depends_on:
+      component:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  ccms:
+    build: ./ccms
+    ports:
+      - "4012:80"
+    environment:
+      - VITE_COMPONENT_URL=http://component
+      - VITE_BASE=/
+    networks:
+      - xplorer-network
+    depends_on:
+      component:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+      
+  casestructure:
+    build: ./casestructure
+    ports:
+      - "4014:80"
+    environment:
+      - VITE_COMPONENT_URL=http://component
+      - VITE_BASE=/
+    networks:
+      - xplorer-network
+    depends_on:
+      component:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  gensettings:
+    build: ./gensettings
+    ports:
+      - "4015:80"
+    environment:
+      - VITE_COMPONENT_URL=http://component
+      - VITE_BASE=/
+    networks:
+      - xplorer-network
+    depends_on:
+      component:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  usermanagement:
+      build: ./usermanagement
+      ports:
+        - "4013:80"
+      environment:
+        - VITE_COMPONENT_URL=http://component
+        - VITE_BASE=/
+      networks:
+        - xplorer-network
+      depends_on:
+        component:
+          condition: service_healthy
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:80"]
+        interval: 30s
+        timeout: 10s
+        retries: 3
+        start_period: 10s
+
+  # services:
+  #   build: ./services
+  #   ports:
+  #     - "4006:80"
+  #   environment:
+  #     - VITE_COMPONENT_URL=http://component
+  #     - VITE_BASE=/
+  #   networks:
+  #     - xplorer-network
+  #   depends_on:
+  #     - component
+
+  # knowledgearticle:
+  #   build: ./knowledgearticle
+  #   ports:
+  #     - "4011:80"
+  #   environment:
+  #     - VITE_COMPONENT_URL=http://component
+  #     - VITE_BASE=/
+  #   networks:
+  #     - xplorer-network
+  #   depends_on:
+  #     - component
+
+  container:
+    build: ./container
+    ports:
+      - "4000:80"
+    environment:
+      - VITE_BASE=/
+      - VITE_CUSTOMERS_URL=http://customers
+      - VITE_DASHBOARD_URL=http://dashboard
+      - VITE_REQUEST_URL=http://request
+      - VITE_AUTH_URL=http://auth
+      - VITE_CASES_URL=http://cases
+      - VITE_SERVICES_URL=http://services
+      - VITE_ACTIVITIES_URL=http://activities
+      - VITE_TRANSACTIONS_URL=http://transactions
+      - VITE_BVN_URL=http://bvn
+      - VITE_ACCOUNT_STATEMENT_URL=http://accountstatement
+      - VITE_KNOWLEDGE_ARTICLE_URL=http://knowledgearticle
+      - VITE_CCMS_URL=http://ccms
+      - VITE_COMPONENT_URL=http://component
+      - VITE_SETTINGS_URL=http://settings
+      - VITE_CASESTRUCTURE_URL=http://casestructure
+      - VITE_GENSET_URL=http://gensettings
+      - VITE_USERMANAGT_URL=http://usermanagement
+    networks:
+      - xplorer-network
+    depends_on:
+      dashboard:
+        condition: service_healthy
+      customers:
+        condition: service_healthy
+      cases:
+        condition: service_healthy
+      activities:
+        condition: service_healthy
+      component:
+        condition: service_healthy
+      auth:
+        condition: service_healthy
+      ccms:
+        condition: service_healthy
+      usermanagement:
+        condition: service_healthy
+      gensettings:
+        condition: service_healthy
+      casestructure:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+
+networks:
+  xplorer-network:
+    driver: bridge

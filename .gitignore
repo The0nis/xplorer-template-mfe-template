@@ -1,0 +1,19 @@
+node_modules
+dist
+.DS_Store
+ARCHTECTURAL.TXT
+# .env
+sample
+TestReadme.md
+package-lock.json
+arch.dio
+bin
+
+accountaccountstatement
+vite.config.js.timestamp-*
+vite.config.js.timestamp*
+env.md
+
+accountstatement
+request
+.vscode

@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.casing-box {
+    height: 64vh;
+}
+
+.vertical-scroll {
+    overflow: scroll;
+    box-sizing: border-box;
+    word-break: keep-all !important;
+  
+    scrollbar-width: thin;  
+    scrollbar-color: #d9dee4 transparent; 
+  }
+.scroll-bar {
+    scrollbar-width: thin;  
+    scrollbar-color: #94979b transparent; 
+    
+  }
+  /* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
